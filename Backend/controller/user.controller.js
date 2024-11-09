@@ -1,6 +1,6 @@
 import User from "../models/user.model.js";
 
-const signup = (req,res) => {
+export const signup = (req,res) => {
     try {
          const { name, email, password, conformpassword } = req.body;
          if (password !== confirmpassword) {
