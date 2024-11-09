@@ -7,7 +7,7 @@ function Right() {
   return (
     <div className="w-[70%] bg-zinc-900 text-white">
       <Chatuser></Chatuser>
-      <div className="overflow-y-auto" style={{ maxHeight: "calc(87vh - 13vh" }}>
+      <div className="overflow-y-auto" style={{ maxHeight: "calc(88vh - 12vh" }}>
         <Messages></Messages>
       </div>
       <Type></Type>
