@@ -18,7 +18,7 @@ export const signup = (req,res) => {
          newUser
            .save()
            .then(() => 
-            res.json({ message: "User regitrstion successful" })
+            res.json({ message: "User registration successful" })
         );
     } catch (error) {
         console.log(error);
