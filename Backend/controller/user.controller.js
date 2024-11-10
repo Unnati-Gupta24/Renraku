@@ -12,14 +12,14 @@ export const signup = async (req,res) => {
         return res.status(400).json({ messages: "Email already exists" });
       }
 
-      bcrypt.genSalt(10, function (err, salt) {
-        bcrypt.hash(password, salt, function (err, hash) {
-          const hashedPassword = hash;
-        });
-      }); 
-      // Log the hashed password 
-      console.log("Hashed Password:", hashedPassword); 
-      const newUser = await new User({ name, email, password: hashedPassword, });
+    //hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Log the hashed password 
+     console.log("Hashed Password:", hashedPassword); 
+
+     const newUser = await new User({ name, email, password: hashedPassword, });
+
       await newUser
         .save()
         .then(() => res.json({ message: "User registration successful" }))
@@ -27,6 +27,7 @@ export const signup = async (req,res) => {
           console.log(error);
           res.status(500).json({ message: "Server error" });
         });
+
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Server error" });
