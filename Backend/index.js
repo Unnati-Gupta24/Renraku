@@ -6,7 +6,7 @@ import userRoute from "./routes/user.route.js";
 const app = express();
 dotenv.config();
 
-app.use(express.json())
+app.use(express.json());
 
 const PORT = process.env.PORT || 5001;
 const URI = process.env.MONGODB_URI;
