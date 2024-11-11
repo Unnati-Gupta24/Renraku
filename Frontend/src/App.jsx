@@ -13,7 +13,7 @@ function App() {
       <Left></Left>
       <Right></Right> 
     </div>  */}
-    <Login/>
+    <Signup/>
     </>
   )
 }
