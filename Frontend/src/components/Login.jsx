@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 function Login() {
    const {
@@ -57,7 +57,7 @@ function Login() {
             <input
               type="password"
               className="grow"
-              value="password"
+              placeholder="Enter Password"
               {...register("password", { required: true })}
             />
           </label>
@@ -83,4 +83,4 @@ function Login() {
   );
 }
 
-export default Login
+export default Login;

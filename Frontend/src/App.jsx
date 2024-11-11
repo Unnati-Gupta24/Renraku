@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from "react-dom";
 import Left from './home/left/left'
 import Right from './home/right/right'
 import Logout from './home/left1/Logout'
@@ -13,7 +14,7 @@ function App() {
       <Left></Left>
       <Right></Right> 
     </div>  */}
-    <Signup/>
+    <Signup />
     </>
   )
 }
