@@ -1,14 +1,34 @@
-import React from 'react';
+import React from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function Login() {
-   const {
-     register,
-     handleSubmit,
-     watch,
-     formState: { errors },
-   } = useForm();
-   const onSubmit = (data) => console.log(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+    axios
+      .post("http://localhost:5002/user/signup", userInfo)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data) {
+          alert("Login successful!");
+        }
+        localStorage.setItem("messenger", JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert("Error: " + error.response.data.message);
+        }
+      });
+  };
 
   return (
     <div>

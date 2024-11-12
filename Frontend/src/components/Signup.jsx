@@ -25,9 +25,15 @@ function Signup() {
     .post("http://localhost:5002/user/signup", userInfo)
     .then((response)=>{
       console.log(response.data);
+      if(response.data){
+        alert("Signup successful! You can now login");
+      }
+      localStorage.setItem("messenger", JSON.stringify(response.data));
     })
     .catch((error)=>{
-      console.log(error);
+      if(error.response){
+        alert("Error: "+error.response.data.message);
+      }
     });
   };
 
