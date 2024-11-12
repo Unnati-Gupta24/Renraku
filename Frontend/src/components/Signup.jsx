@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function Signup() {
   const {
@@ -13,7 +14,22 @@ function Signup() {
     return value === password || "Password and Confirm Password do not match";
   };
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const userInfo = {
+    name: data.name,
+    email: data.email,
+    password: data.password,
+    confirmpassword: data.confirmpassword,
+    };
+    axios
+    .post("http://localhost:5002/user/signup", userInfo)
+    .then((response)=>{
+      console.log(response.data);
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
+  };
 
   return (
     <div className="flex h-screen items-center justify-center">
